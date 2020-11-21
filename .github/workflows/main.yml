@@ -17,11 +17,17 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: '12.x'
-    - run: yarn
-    - run: yarn build
-    - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json pm2.config.json yarn.lock
 
-    - name: 发布包
+    - name: '安装依赖'
+      run: yarn
+
+    - name: '构建'
+      run: yarn build
+
+    - name: '打包'
+      run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json pm2.config.json yarn.lock
+
+    - name: 发布
       id: create_release
       uses: actions/create-release@master
       env:
@@ -32,7 +38,7 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: 上传包
+    - name: 上传
       id: upload-release-asset
       uses: actions/upload-release-asset@master
       env:
