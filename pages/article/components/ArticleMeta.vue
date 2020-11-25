@@ -10,7 +10,7 @@
             <span class="date">{{ article.createAt | date }}</span>
         </div>
 
-        <template v-if="article.author.username !== user.username">
+        <template v-if="!user || article.author.username !== user.username">
             <button
                 class="btn btn-sm btn-outline-secondary"
                 :class="{ active: article.author.following }"

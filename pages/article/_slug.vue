@@ -28,11 +28,11 @@
                 <ArticleMeta :article="article" />
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-12 col-md-8 offset-md-2">
                     <ArticleComments :article="article" />
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

@@ -5,7 +5,7 @@ export const request = axios.create({
     // baseURL: 'http://realworld.api.fed.lagounews.com'
 })
 
-export default ({ store }) => {
+export default ({ store, redirect }) => {
     request.interceptors.request.use(config => {
         const { user } = store.state
 
@@ -13,5 +13,12 @@ export default ({ store }) => {
             config.headers.Authorization = `Token ${user.token}`
         }
         return config
+    })
+    request.interceptors.response.use(v => v, error => {
+        const { status } = error.response
+
+        if (status === 401) {
+            redirect('/login')
+        }
     })
 }
