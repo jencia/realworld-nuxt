@@ -1,7 +1,10 @@
 {
   "name": "realworld-nuxt",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "index.js",
+  "author": "jencia",
+  "repository": "https://github.com/jencia/realworld-nuxt",
+  "homepage": "http://task.jswalk.com/realworld-nuxt",
   "license": "MIT",
   "scripts": {
     "dev": "nuxt",
